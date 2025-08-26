@@ -3,11 +3,13 @@ using UnityEngine;
 
 public class Personagem : MonoBehaviour
 {
+    public Transform projetil;
     public float velocidade = 5;
     public float velocidadeMaxima = 5;
     public float forcaPulo = 5;
     public Transform groundChecker;
 
+    bool estaOlhandoParaDireita = true;
     bool podepular = true;
 
     Rigidbody2D rb;
@@ -23,6 +25,17 @@ public class Personagem : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.F) == true)
+
+
+        {
+            Transform instanciado = Instantiate(projetil);
+            instanciado.position = transform.position;
+            instanciado.GetComponent<projetil>().direcao
+
+        }
+
+
         float horizontal = Input.GetAxis("Horizontal");
         horizontal = horizontal * velocidade * Time.deltaTime;
 
