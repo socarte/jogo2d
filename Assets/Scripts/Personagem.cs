@@ -1,9 +1,12 @@
+using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 
 public class Personagem : MonoBehaviour
 {
-    public Transform projetil;
+    TextMeshProUGUI textomoedas;
+    Transform projetil;
+    Transform Inicio;
     public float velocidade = 5;
     public float velocidadeMaxima = 5;
     public float forcaPulo = 5;
@@ -20,6 +23,11 @@ public class Personagem : MonoBehaviour
     void Start()
     {
         rb = transform.GetComponent<Rigidbody2D>();
+        transform.position = Inicio.position;
+
+        textomoedas = GameObject.Find("Text (TMP)").transform.GetComponent<TextMeshProUGUI>();
+        projetil = GameObject.Find("tiro").transform;
+        Inicio = GameObject.Find("Inicio").transform;
     }
 
     // Update is called once per frame
@@ -31,7 +39,7 @@ public class Personagem : MonoBehaviour
         {
             Transform instanciado = Instantiate(projetil);
             instanciado.position = transform.position;
-            instanciado.GetComponent<projetil>().direcao
+            instanciado.GetComponent<projetil>().direcao = estaOlhandoParaDireita ? Vector3.right : Vector3.left;
 
         }
 

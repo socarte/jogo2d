@@ -6,9 +6,10 @@ public class projetil : MonoBehaviour
     public Vector3 direcao;
     public float velocidade = 20;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+   private void Start()
     {
-        
+        Destroy(transform.gameObject, 5);
+
     }
 
     // Update is called once per frame
